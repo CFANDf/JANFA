@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アラブ遊牧民族友好協会日本支部 | Japan-Arab Nomadic People's Friendship Association Japan Branch</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'arab-gold': '#C5A059',
+                        'arab-dark': '#1A2E35',
+                        'arab-sand': '#F4EDD2',
+                        'arab-accent': '#D97C2E',
+                        'arab-green': '#2E5D4B',
+                    },
+                    fontFamily: {
+                        'sans': ['"Noto Sans JP"', 'sans-serif'],
+                        'serif': ['"Noto Serif JP"', 'serif'],
+                        'cinzel': ['"Cinzel"', 'serif'],
+                        'arabic': ['"Amiri"', 'serif'], // Font for Quran text
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.1em;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+
+        /* Parallax Backgrounds */
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Fade In Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Decorative Pattern Overlay */
+        .pattern-overlay {
+            background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23C5A059" fill-opacity="0.1" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+        }
+
+        .pattern-overlay-light {
+            background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%231A2E35" fill-opacity="0.05" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E');
+        }
+
+        /* Navigation Glass Effect */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-arab-sand">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 glass-nav">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo Area -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="https://github.com/tochigiagriculturalacademy/homepage/blob/main/Gemini_Generated_Image_hfkqoshfkqoshfkq.png?raw=true" alt="Association Logo" class="h-12 w-12 rounded-full border-2 border-arab-gold object-cover group-hover:scale-105 transition-transform">
+                <div>
+                    <span class="block text-sm text-arab-gold font-bold tracking-widest font-cinzel">JANFA</span>
+                    <span class="block text-lg font-serif text-arab-dark font-bold leading-none">アラブ遊牧民族友好協会日本支部</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden xl:flex space-x-6 items-center text-sm font-medium">
+                <a href="#about" class="text-arab-dark hover:text-arab-gold transition-colors">協会について</a>
+                <a href="#facility" class="text-arab-dark hover:text-arab-gold transition-colors">施設案内</a>
+                <a href="#activities" class="text-arab-dark hover:text-arab-gold transition-colors">活動内容</a>
+                <a href="#quran" class="text-arab-dark hover:text-arab-gold transition-colors">文化コラム</a>
+                <a href="#gallery" class="text-arab-dark hover:text-arab-gold transition-colors">ギャラリー</a>
+                <a href="#access" class="text-arab-dark hover:text-arab-gold transition-colors">アクセス</a>
+                <a href="#contact" class="px-5 py-2 bg-arab-gold text-white rounded-full hover:bg-yellow-600 transition-colors shadow-lg">お問い合わせ</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="xl:hidden text-arab-dark text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-t border-gray-100 absolute w-full max-h-screen overflow-y-auto shadow-xl">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#about" class="text-arab-dark hover:text-arab-gold">協会について</a>
+                <a href="#facility" class="text-arab-dark hover:text-arab-gold">施設案内</a>
+                <a href="#activities" class="text-arab-dark hover:text-arab-gold">活動内容</a>
+                <a href="#quran" class="text-arab-dark hover:text-arab-gold">文化コラム</a>
+                <a href="#gallery" class="text-arab-dark hover:text-arab-gold">ギャラリー</a>
+                <a href="#access" class="text-arab-dark hover:text-arab-gold">アクセス</a>
+                <a href="#contact" class="text-arab-gold font-bold">お問い合わせ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image (Desert 1) -->
+        <div class="absolute inset-0 z-0 parallax" style="background-image: url('https://www.free-materials.com/adm/wp-content/uploads/2024/10/adpIMG_4995-.jpg');"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-arab-dark/80 z-10"></div> <!-- Overlay -->
+        
+        <div class="relative z-20 text-center text-white px-4 fade-in-up">
+            <p class="text-arab-gold font-cinzel text-xl md:text-2xl mb-4 tracking-[0.3em] uppercase drop-shadow-md">Bridging Cultures</p>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight drop-shadow-lg">
+                砂漠と桜の絆。<br>
+                <span class="text-3xl md:text-5xl font-light mt-4 block">新たな友情の地平線へ</span>
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-gray-200 leading-relaxed drop-shadow">
+                悠久のアラブ遊牧文化と日本の精神が出会う場所。<br>
+                私たちは、文化・芸術・対話を通じて、<br class="hidden md:inline">心の国境を越える架け橋となります。
+            </p>
+            <a href="#about" class="inline-block border-2 border-arab-gold text-arab-gold hover:bg-arab-gold hover:text-white px-10 py-3 rounded-none transition-all duration-300 tracking-widest uppercase font-cinzel">
+                Explore More
+            </a>
+            
+            <!-- Scroll Down Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-2xl text-arab-gold/70"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white relative overflow-hidden">
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 w-2/5 h-full bg-arab-sand/40 -z-10 skew-x-12 transform origin-top-right"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-arab-gold/5 rounded-full blur-3xl -z-10"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="md:w-1/2 fade-in-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-[2px] bg-arab-gold"></div>
+                        <h2 class="text-arab-gold font-cinzel text-lg tracking-wider">About Us</h2>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark mb-8 leading-snug">
+                        遊牧の知恵と<br>和の心が響き合う場所
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-loose text-justify">
+                        アラブ遊牧民族友好協会日本支部は、地理的な距離を超え、日本とアラブの遊牧文化を持つ人々が心を通わせる場を提供するために設立されました。
+                        砂漠という過酷な環境で培われた「おもてなし（ホスピタリティ）」の精神は、日本人の「おもてなし」の心と深く通ずるものがあります。
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-loose text-justify">
+                        私たちは、互いの違いを尊重し、芸術、食文化、歴史的対話を通じて、新しい時代の友情を育むことを使命としています。伝統的なアラベスク模様のように、私たちの関係も美しく、強固に結ばれていくことを願っています。
+                    </p>
+                    
+                    <div class="flex gap-4">
+                        <div class="flex flex-col">
+                            <span class="text-4xl font-cinzel text-arab-gold font-bold">20+</span>
+                            <span class="text-sm text-gray-500">Years of Friendship</span>
+                        </div>
+                        <div class="w-[1px] bg-gray-300 h-12"></div>
+                        <div class="flex flex-col">
+                            <span class="text-4xl font-cinzel text-arab-gold font-bold">500+</span>
+                            <span class="text-sm text-gray-500">Events Held</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Grid -->
+                <div class="md:w-1/2 relative fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://www.free-materials.com/adm/wp-content/uploads/2024/10/adpIMG_5100-.jpg" alt="Minaret" class="rounded-lg shadow-xl w-full h-80 object-cover transform translate-y-8 grayscale-[10%] hover:grayscale-0 transition duration-700">
+                        <div class="space-y-4">
+                            <!-- Library Image -->
+                            <img src="https://images.unsplash.com/photo-1588618319407-948d4424befd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzU5fHxhcmFifGVufDB8fDB8fHww" alt="Middle East Library" class="rounded-lg shadow-xl w-full h-48 object-cover grayscale-[10%] hover:grayscale-0 transition duration-700">
+                            <!-- Decorative Box -->
+                            <div class="bg-arab-dark p-6 rounded-lg text-white shadow-xl h-28 flex items-center justify-center relative overflow-hidden group">
+                                <img src="https://www.free-materials.com/adm/wp-content/uploads/2024/06/adpIMG_2573-.jpg" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700">
+                                <span class="relative font-serif font-bold text-lg tracking-widest z-10">文化の交差点</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Section (Inspired by Tokyo Camii) -->
+    <section id="facility" class="py-24 bg-gray-50 pattern-overlay-light relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-arab-gold font-cinzel text-xl mb-2">Our Facility</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark">アラブ文化センターのご案内</h3>
+                <p class="mt-4 text-gray-500 max-w-2xl mx-auto">
+                    東京・桜見町に位置する私たちの拠点は、誰もが気軽にアラブ・イスラム文化に触れられるオープンスペースです。
+                    美しい幾何学模様に包まれた空間で、安らぎのひとときをお過ごしください。
+                </p>
+            </div>
+
+            <!-- Main Feature -->
+            <div class="grid md:grid-cols-2 gap-0 shadow-2xl rounded-2xl overflow-hidden mb-16 fade-in-up bg-white">
+                <div class="relative h-[400px] md:h-auto">
+                    <!-- Unsplash Image for Mosque Interior/Hall -->
+                    <img src="https://images.unsplash.com/photo-1577561425536-51f550bf91d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjUwfHxtb3NxdWV8ZW58MHx8MHx8fDA%3D" alt="Main Hall" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-8 w-full">
+                        <h4 class="text-white text-2xl font-serif font-bold">多目的ホール・礼拝スペース</h4>
+                        <p class="text-gray-200 text-sm mt-2">※画像はイメージです</p>
+                    </div>
+                </div>
+                <div class="p-10 md:p-16 flex flex-col justify-center bg-white relative">
+                    <!-- Arabesque Watermark -->
+                    <i class="fas fa-mosque absolute -right-10 -bottom-10 text-9xl text-gray-50 pointer-events-none"></i>
+                    
+                    <h4 class="text-2xl font-bold text-arab-dark mb-6 font-serif border-b-2 border-arab-gold pb-4 inline-block">見学・交流の場として</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        最大200名を収容できるホールでは、講演会や文化イベントを開催しています。また、静寂に包まれた礼拝スペースは見学も可能です（要予約）。
+                        天井に施されたカリグラフィーと、ステンドグラスから差し込む光が織りなす幻想的な空間は、訪れる人々の心を洗います。
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600"><i class="fas fa-check text-arab-gold mr-3"></i> どなたでも見学自由（団体は要予約）</li>
+                        <li class="flex items-center text-gray-600"><i class="fas fa-check text-arab-gold mr-3"></i> 日本語ガイドによる案内あり</li>
+                        <li class="flex items-center text-gray-600"><i class="fas fa-check text-arab-gold mr-3"></i> バリアフリー対応</li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-arab-gold font-bold hover:underline">
+                        見学を予約する <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sub Facilities -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Library -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-arab-gold group hover:transform hover:-translate-y-1 transition-all fade-in-up">
+                    <div class="w-14 h-14 bg-arab-sand rounded-full flex items-center justify-center text-arab-dark text-2xl mb-6 group-hover:bg-arab-dark group-hover:text-arab-gold transition-colors">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">図書・資料コーナー</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        アラブの歴史、美術、宗教に関する日本語・アラビア語の書籍を多数所蔵。静かな環境で読書や学習ができます。
+                    </p>
+                </div>
+
+                <!-- Market -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-arab-accent group hover:transform hover:-translate-y-1 transition-all fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-arab-accent text-2xl mb-6 group-hover:bg-arab-accent group-hover:text-white transition-colors">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">ハラールマーケット</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        デーツ（ナツメヤシ）やスパイス、ハラール食品、雑貨などを販売。本場の味をご家庭でお楽しみいただけます。
+                    </p>
+                </div>
+
+                <!-- Salon -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-arab-green group hover:transform hover:-translate-y-1 transition-all fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center text-arab-green text-2xl mb-6 group-hover:bg-arab-green group-hover:text-white transition-colors">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">ゲストサロン</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        アラビックコーヒーやチャイを飲みながら歓談できる休憩スペース。会員同士の交流の場として人気です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-24 bg-arab-dark text-white pattern-overlay">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in-up">
+                <div>
+                    <h2 class="text-arab-gold font-cinzel text-xl mb-2">Our Activities</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold">活動紹介</h3>
+                </div>
+                <a href="#contact" class="hidden md:inline-block mt-4 md:mt-0 text-gray-300 hover:text-white border-b border-gray-500 hover:border-white transition-colors pb-1">
+                    イベントカレンダーを見る <i class="fas fa-calendar-alt ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Activity 1 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-white/10 transition-colors duration-300 fade-in-up border border-white/5 hover:border-arab-gold/30">
+                    <div class="h-60 overflow-hidden relative">
+                        <!-- Hummus Image -->
+                        <img src="https://plus.unsplash.com/premium_photo-1667428304100-a1e05281347f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjk2fHxhcmFifGVufDB8fDB8fHww" alt="Hummus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-arab-gold text-white text-xs font-bold px-3 py-1 rounded-full">Monthly</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-arab-gold text-2xl mb-3"><i class="fas fa-glass-cheers"></i></div>
+                        <h4 class="text-xl font-bold mb-3 font-serif">晩餐会・交流会</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            定期的に開催される晩餐会では、本格的なアラブ料理（フムスやケバブなど）と音楽を楽しみながら、会員同士の親睦を深めています。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-white/10 transition-colors duration-300 fade-in-up border border-white/5 hover:border-arab-gold/30" style="transition-delay: 0.1s;">
+                    <div class="h-60 overflow-hidden relative">
+                        <!-- Air Arabia Image -->
+                        <img src="https://images.unsplash.com/photo-1760372508996-3a69cb765f76?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjMwfHxhcmFifGVufDB8fDB8fHww" alt="Air Arabia" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-arab-accent text-white text-xs font-bold px-3 py-1 rounded-full">Special</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-arab-gold text-2xl mb-3"><i class="fas fa-plane-departure"></i></div>
+                        <h4 class="text-xl font-bold mb-3 font-serif">スタディツアー</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            アラブ諸国へのスタディツアーを企画。遺跡巡りや現地家庭へのホームステイなど、観光旅行では味わえない深い体験を提供します。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-white/10 transition-colors duration-300 fade-in-up border border-white/5 hover:border-arab-gold/30" style="transition-delay: 0.2s;">
+                    <div class="h-60 overflow-hidden relative">
+                        <!-- Graffiti Image -->
+                        <img src="https://images.unsplash.com/photo-1636055308873-005585fbb11d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA0fHxhcmFiaWN8ZW58MHx8MHx8fDA%3D" alt="Arabic Graffiti" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-arab-green text-white text-xs font-bold px-3 py-1 rounded-full">Weekly</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="text-arab-gold text-2xl mb-3"><i class="fas fa-book-open"></i></div>
+                        <h4 class="text-xl font-bold mb-3 font-serif">語学・文化講座</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            生きたアラビア語を学ぶ講座や、カリグラフィー教室を開催。街角の言葉から古典まで、幅広く言語の魅力に触れます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 md:hidden">
+                <a href="#contact" class="text-gray-300 border-b border-gray-500 pb-1">イベントカレンダーを見る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn Quran Section (New) -->
+    <section id="quran" class="py-24 bg-arab-sand relative overflow-hidden">
+        <!-- Parallax Background for Quran Section -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none" 
+             style="background-image: url('https://www.free-materials.com/adm/wp-content/uploads/2024/06/adpIMG_2573-.jpg'); background-size: cover; background-position: center;">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-16 flex flex-col lg:flex-row gap-12 items-center fade-in-up">
+                
+                <!-- Quran Image/Visual -->
+                <div class="lg:w-1/2 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg border-8 border-double border-arab-gold/30 rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <!-- New Quran Image -->
+                        <img src="https://images.unsplash.com/photo-1590720367388-6cdfc716b933?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTk2fHxhcmFifGVufDB8fDB8fHww" alt="Holy Quran" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+                            <span class="text-white font-cinzel text-sm tracking-widest mb-1">THE HOLY QURAN</span>
+                            <span class="text-white font-serif text-xl font-bold">言葉の奇跡に触れる</span>
+                        </div>
+                    </div>
+                    <!-- Decorative Element -->
+                    <div class="absolute -top-6 -left-6 text-6xl text-arab-gold opacity-30 font-serif">“</div>
+                </div>
+
+                <!-- Content -->
+                <div class="lg:w-1/2">
+                    <div class="inline-block bg-arab-dark text-arab-gold text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wider">CULTURE COLUMN</div>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark mb-6">
+                        コーランを読んでみよう！
+                        <span class="block text-lg font-normal text-gray-500 mt-2">アラビア語の響きと意味の深淵</span>
+                    </h3>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        イスラム教の聖典「コーラン（クルアーン）」は、アラビア語で「読まれるもの」を意味します。
+                        そのリズミカルで美しい韻を踏んだ文章は、「言葉の奇跡」とも呼ばれ、朗誦（ろうしょう）される音の響きそのものが芸術とされています。
+                    </p>
+
+                    <!-- Example Verse Box -->
+                    <div class="bg-arab-sand/30 border-l-4 border-arab-gold p-6 rounded-r-lg mb-8">
+                        <div class="text-right mb-4">
+                            <p class="text-3xl font-bold text-arab-dark font-arabic leading-loose">
+                                بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                            </p>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-sm text-gray-500 font-bold mb-1">[Bismillahi r-rahmani r-rahim]</p>
+                            <p class="text-lg font-serif text-gray-800">
+                                「慈悲あまねく慈愛深きアッラーの御名において」
+                            </p>
+                            <p class="text-xs text-gray-500 mt-2">
+                                —— 開端の章（アル・ファーティハ）第1節
+                            </p>
+                        </div>
+                        <!-- Fake Audio Player UI -->
+                        <div class="mt-4 bg-white rounded-full p-2 flex items-center shadow-sm cursor-pointer hover:bg-gray-50 transition-colors w-full md:w-auto inline-flex group">
+                            <div class="w-8 h-8 bg-arab-gold rounded-full flex items-center justify-center text-white mr-3 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-play ml-1 text-xs"></i>
+                            </div>
+                            <div class="flex-1 mr-4 h-1 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="w-1/3 h-full bg-arab-dark"></div>
+                            </div>
+                            <span class="text-xs text-gray-500 font-mono">00:15</span>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 mb-6 text-sm">
+                        当協会では、宗教的な勧誘ではなく、文化的・言語的側面からコーランに親しむ「アラビア語朗読会」や「カリグラフィー体験」も実施しています。美しい文字と音の世界を覗いてみませんか？
+                    </p>
+
+                    <a href="#contact" class="text-arab-dark font-bold border-b-2 border-arab-gold hover:text-arab-gold transition-colors pb-1 inline-flex items-center">
+                        講座の詳細を聞く <i class="fas fa-angle-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (New) -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-arab-gold font-cinzel text-xl mb-2">Q&A</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark">よくある質問</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto fade-in-up">
+                <!-- Q1 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                    <h4 class="flex items-start text-lg font-bold text-arab-dark mb-4">
+                        <span class="text-arab-gold text-2xl mr-3 font-cinzel">Q.</span>
+                        イスラム教徒（ムスリム）でなくても入会できますか？
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pl-8">
+                        <span class="font-bold text-arab-gold block mb-1">A.</span>
+                        もちろんです。当協会は文化交流を目的としており、宗教や国籍を問わず、アラブ文化に関心のあるすべての方を歓迎しています。会員の半数以上は日本人です。
+                    </p>
+                </div>
+                <!-- Q2 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                    <h4 class="flex items-start text-lg font-bold text-arab-dark mb-4">
+                        <span class="text-arab-gold text-2xl mr-3 font-cinzel">Q.</span>
+                        イベント参加時の服装に決まりはありますか？
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pl-8">
+                        <span class="font-bold text-arab-gold block mb-1">A.</span>
+                        基本的には自由ですが、モスク（礼拝堂）内部の見学時のみ、露出の多い服装（短パン、ノースリーブ等）はご遠慮いただいております。女性の方はスカーフの着用をお願いする場合があります（貸出あり）。
+                    </p>
+                </div>
+                <!-- Q3 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                    <h4 class="flex items-start text-lg font-bold text-arab-dark mb-4">
+                        <span class="text-arab-gold text-2xl mr-3 font-cinzel">Q.</span>
+                        アラビア語が全く話せませんが大丈夫ですか？
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pl-8">
+                        <span class="font-bold text-arab-gold block mb-1">A.</span>
+                        全く問題ありません。イベントや講座は日本語で行われます。アラビア語講座も「あいうえお」レベルからスタートするクラスをご用意しています。
+                    </p>
+                </div>
+                <!-- Q4 -->
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
+                    <h4 class="flex items-start text-lg font-bold text-arab-dark mb-4">
+                        <span class="text-arab-gold text-2xl mr-3 font-cinzel">Q.</span>
+                        子供連れでも参加できますか？
+                    </h4>
+                    <p class="text-gray-600 leading-relaxed pl-8">
+                        <span class="font-bold text-arab-gold block mb-1">A.</span>
+                        はい、歓迎いたします。ファミリー向けの料理教室や文化体験イベントも定期的に開催しています。施設内には授乳スペースもございます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-arab-gold font-cinzel text-xl mb-2">Moments</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark">日本とアラブの風景</h3>
+                <p class="mt-4 text-gray-500">会員が撮影した、両地域の日常と非日常。</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <!-- Large Item (Arab Road) - Linked to UNICEF -->
+                <a href="https://www.unicef.org/emergencies/children-gaza-need-lifesaving-support" target="_blank" rel="noopener noreferrer" class="col-span-2 row-span-2 rounded-xl overflow-hidden relative group fade-in-up cursor-pointer block">
+                    <img src="https://images.unsplash.com/photo-1663530079695-f7bea03451bd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTkyfHxhcmFifGVufDB8fDB8fHww" alt="Arab Road" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
+                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 w-full translate-y-2 group-hover:translate-y-0 transition duration-300">
+                        <span class="text-white text-lg font-bold font-serif flex items-center gap-2">果てしなき道 <i class="fas fa-external-link-alt text-xs opacity-70"></i></span>
+                        <p class="text-gray-300 text-xs mt-1 opacity-0 group-hover:opacity-100 transition duration-300">ガザの人道支援（UNICEF）</p>
+                    </div>
+                </a>
+                
+                <!-- Small Item 1 (Cat - Keeping existing cute cat) -->
+                <div class="rounded-xl overflow-hidden relative group fade-in-up">
+                    <img src="https://www.free-materials.com/adm/wp-content/uploads/2023/01/adp23-01-08-00-14-46-800-.jpg" alt="Cat" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-300"></div>
+                </div>
+
+                <!-- Small Item 2 (Camel - Replacing Bear) -->
+                <div class="rounded-xl overflow-hidden relative group fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1682038841106-6a07ea219a08?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODd8fGFyYWJpY3xlbnwwfHwwfHx8MA%3D%3D" alt="Cute Camel" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-300"></div>
+                </div>
+
+                <!-- Wide Item (Kuwait Scholarship - Link) -->
+                <a href="https://www.kw.emb-japan.go.jp/itpr_ja/11_000001_00299.html" target="_blank" rel="noopener noreferrer" class="col-span-2 rounded-xl overflow-hidden relative group fade-in-up block cursor-pointer">
+                    <img src="https://www.free-materials.com/adm/wp-content/uploads/2018/03/adpDSC_6994-.jpg" alt="Study Abroad" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:grayscale-0 grayscale-[30%]">
+                    <div class="absolute inset-0 bg-arab-gold/10 group-hover:bg-transparent transition duration-300"></div>
+                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 p-4 w-full">
+                        <span class="text-white text-sm font-bold flex items-center gap-2">
+                            クウェート政府奨学金留学 <i class="fas fa-external-link-alt text-xs"></i>
+                        </span>
+                        <p class="text-gray-300 text-xs mt-1">日本人のアラブ諸国留学</p>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Access & Japan Office -->
+    <section id="access" class="py-24 bg-arab-sand relative">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row fade-in-up">
+                <div class="md:w-1/2 relative min-h-[400px]">
+                    <img src="https://www.free-materials.com/adm/wp-content/uploads/2025/11/adpDSC_2592-.jpg" alt="Harajuku Station" class="absolute inset-0 w-full h-full object-cover grayscale-[20%]">
+                    <div class="absolute inset-0 bg-arab-dark/40 flex flex-col items-center justify-center text-center p-6">
+                        <p class="text-arab-gold font-cinzel tracking-widest mb-2">TOKYO HEADQUARTER</p>
+                        <h3 class="text-white text-4xl font-serif font-bold shadow-black drop-shadow-lg">JAPAN OFFICE</h3>
+                    </div>
+                </div>
+                <div class="md:w-1/2 p-10 md:p-14 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold text-arab-dark mb-8 font-serif border-l-4 border-arab-gold pl-4">東京本部へのアクセス</h3>
+                    <div class="space-y-6 text-gray-600">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-arab-dark">住所</p>
+                                <span>
+                                    〒150-0099<br>
+                                    東京都渋谷区桜見町 1-2-3<br>
+                                    アラブ友好ビル 3F (モスク併設)
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                             <div class="w-10 h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-arab-dark">電話番号</p>
+                                <span>03-1234-5678</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                             <div class="w-10 h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-arab-dark">メールアドレス</p>
+                                <span>info@arab-nomadic-friendship.jp</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                             <div class="w-10 h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-arab-dark">開館時間</p>
+                                <span>平日 10:00 - 18:00 (土日祝休)</span>
+                                <p class="text-xs text-gray-400 mt-1">※イベント開催時は土日も開館</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <a href="#" class="inline-block bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-50 hover:text-arab-gold transition-colors shadow-sm">
+                            Google Mapsで見る <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="py-24 bg-arab-dark text-center text-white relative overflow-hidden">
+        <!-- Background decorative element -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none bg-[url('https://www.free-materials.com/adm/wp-content/uploads/2024/06/adpIMG_2573-.jpg')] bg-cover bg-center"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-arab-gold/10 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 fade-in-up">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">Join Our Community</h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                アラブ文化に興味がある方、国際交流に参加したい方、<br>
+                私たちと一緒に新しい世界を広げませんか？<br>
+                <span class="text-arab-gold text-base mt-2 block">まずは無料の会員登録、または資料請求から。</span>
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center mb-16">
+                <button onclick="openModal('register')" class="bg-arab-gold text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-yellow-600 transition-all shadow-lg hover:shadow-2xl transform hover:-translate-y-1 ring-4 ring-arab-gold/30">
+                    会員登録はこちら <span class="text-sm font-normal ml-1">(無料)</span>
+                </button>
+                <button onclick="openModal('contact')" class="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-arab-dark transition-all hover:shadow-lg">
+                    資料請求・お問い合わせ
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-16 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Col 1: Logo & Desc -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                         <img src="https://github.com/tochigiagriculturalacademy/homepage/blob/main/Gemini_Generated_Image_hfkqoshfkqoshfkq.png?raw=true" alt="Logo" class="h-12 w-12 rounded-full border border-gray-600">
+                        <span class="text-white font-serif font-bold text-lg">JANFA</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6">
+                        日本とアラブ遊牧民族をつなぐ架け橋。<br>
+                        文化交流を通じて世界平和に貢献します。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-arab-gold hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-arab-gold hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-serif">サイトマップ</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#about" class="hover:text-arab-gold transition-colors">協会について</a></li>
+                        <li><a href="#facility" class="hover:text-arab-gold transition-colors">施設案内</a></li>
+                        <li><a href="#activities" class="hover:text-arab-gold transition-colors">活動内容</a></li>
+                        <li><a href="#quran" class="hover:text-arab-gold transition-colors">文化コラム</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-serif opacity-0 md:opacity-100">その他</h4>
+                    <ul class="space-y-3 text-sm">
+                         <li><a href="#gallery" class="hover:text-arab-gold transition-colors">ギャラリー</a></li>
+                        <li><a href="#access" class="hover:text-arab-gold transition-colors">アクセス</a></li>
+                        <li><a href="#" class="hover:text-arab-gold transition-colors">プライバシーポリシー</a></li>
+                        <li><a href="#" class="hover:text-arab-gold transition-colors">会員規約</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter (Fake) -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-serif">ニュースレター</h4>
+                    <p class="text-sm mb-4">イベント情報をいち早くお届けします。</p>
+                    <form onsubmit="event.preventDefault(); alert('登録ありがとうございます！');" class="flex flex-col gap-2">
+                        <input type="email" placeholder="メールアドレス" class="bg-gray-800 border border-gray-700 text-white px-4 py-2 rounded focus:outline-none focus:border-arab-gold transition-colors">
+                        <button class="bg-arab-gold text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors font-bold text-sm">登録する</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2024 Arab Nomadic People's Friendship Association Japan Branch. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (Overlay Forms) -->
+    <!-- Register Modal -->
+    <div id="modal-register" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/75 transition-opacity backdrop-blur-sm" onclick="closeModal('register')"></div>
+        <div class="flex min-h-full items-center justify-center p-4 text-center">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:w-full sm:max-w-lg w-full">
+                <!-- Form Content -->
+                <div id="register-form-content" class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-serif font-bold text-arab-dark">新規会員登録</h3>
+                        <button onclick="closeModal('register')" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
+                    </div>
+                    <form onsubmit="handleFakeSubmit(event, 'register')" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">お名前 <span class="text-red-500">*</span></label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-arab-gold focus:border-transparent outline-none" placeholder="山田 太郎">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">メールアドレス <span class="text-red-500">*</span></label>
+                            <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-arab-gold focus:border-transparent outline-none" placeholder="taro@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">会員種別</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-arab-gold focus:border-transparent outline-none">
+                                <option>個人会員 (年会費無料)</option>
+                                <option>学生会員 (年会費無料)</option>
+                                <option>法人会員 (年会費無料)</option>
+                            </select>
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-arab-gold text-white font-bold py-3 rounded-lg hover:bg-yellow-600 transition-colors shadow-md">
+                                確認して登録する
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Success Message (Hidden by default) -->
+                <div id="register-success" class="hidden p-12 text-center">
+                    <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-arab-dark mb-2">登録ありがとうございます</h3>
+                    <p class="text-gray-600 mb-6">ご入力いただいたメールアドレスへ<br>確認メールを送信しました。</p>
+                    <button onclick="closeModal('register')" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                        閉じる
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="modal-contact" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-black/75 transition-opacity backdrop-blur-sm" onclick="closeModal('contact')"></div>
+        <div class="flex min-h-full items-center justify-center p-4 text-center">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:w-full sm:max-w-lg w-full">
+                <!-- Form Content -->
+                <div id="contact-form-content" class="p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-serif font-bold text-arab-dark">資料請求・お問い合わせ</h3>
+                        <button onclick="closeModal('contact')" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
+                    </div>
+                    <form onsubmit="handleFakeSubmit(event, 'contact')" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">お名前 <span class="text-red-500">*</span></label>
+                            <input type="text" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-arab-gold focus:border-transparent outline-none" placeholder="山田 太郎">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">メールアドレス <span class="text-red-500">*</span></label>
+                            <input type="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-arab-gold focus:border-transparent outline-none" placeholder="taro@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">お問い合わせ種別</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-arab-gold focus:border-transparent outline-none">
+                                <option>資料請求 (パンフレット郵送)</option>
+                                <option>イベントについて</option>
+                                <option>入会についてのご相談</option>
+                                <option>取材・メディア関連</option>
+                                <option>その他</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">お問い合わせ内容</label>
+                            <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-arab-gold focus:border-transparent outline-none"></textarea>
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="w-full bg-arab-dark text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors shadow-md">
+                                送信する
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Success Message (Hidden by default) -->
+                <div id="contact-success" class="hidden p-12 text-center">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-arab-dark mb-2">送信完了しました</h3>
+                    <p class="text-gray-600 mb-6">お問い合わせありがとうございます。<br>担当者より順次ご連絡させていただきます。</p>
+                    <button onclick="closeModal('contact')" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                        閉じる
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating LINE Widget -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end group">
+        <!-- Notification Badge/Tooltip -->
+        <div id="line-tooltip" class="bg-white text-xs font-bold py-2 px-4 rounded-full shadow-lg mb-3 mr-2 relative animate-bounce" style="animation-duration: 2s;">
+            <span class="text-green-600">●</span> 最新情報はこちら
+            <div class="absolute -bottom-1 right-6 w-3 h-3 bg-white transform rotate-45"></div>
+            <!-- Close tooltip button -->
+            <button onclick="this.parentElement.style.display='none'" class="absolute -top-2 -right-1 bg-gray-200 rounded-full w-4 h-4 flex items-center justify-center text-[10px] text-gray-600">&times;</button>
+        </div>
+
+        <!-- QR Code Popup (Hidden by default, toggled by click) -->
+        <div id="line-popup" class="hidden mb-4 bg-white p-4 rounded-2xl shadow-2xl border border-gray-100 transform origin-bottom-right transition-all duration-300 w-64">
+            <div class="text-center">
+                <div class="flex justify-between items-center mb-2">
+                    <p class="text-sm font-bold text-gray-800">公式LINE友だち追加</p>
+                    <button id="close-popup" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
+                </div>
+                <p class="text-xs text-gray-500 mb-3">イベント情報や限定ニュースをお届け！</p>
+                <div class="bg-gray-50 p-2 rounded-lg inline-block mb-2">
+                    <img src="https://qr-official.line.me/gs/M_298lghoh_GW.png?oat_content=qr" alt="LINE QR" class="w-40 h-40 object-contain mx-auto">
+                </div>
+                <a href="https://lin.ee/pKKcdLh" target="_blank" class="block w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-2 rounded-lg text-sm transition-colors mb-1 shadow-sm">
+                    友だち追加する
+                </a>
+                <p class="text-[10px] text-gray-400 mt-1">スマホの方はボタンをタップ！</p>
+            </div>
+        </div>
+
+        <!-- Float Button -->
+        <button id="line-btn" class="bg-[#06C755] hover:bg-[#05b34c] text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-4xl transition-all duration-300 hover:scale-110 hover:shadow-green-500/30 focus:outline-none ring-4 ring-white">
+            <i class="fab fa-line"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Modal Logic
+        function openModal(type) {
+            document.getElementById(`modal-${type}`).classList.remove('hidden');
+            // Reset state
+            document.getElementById(`${type}-form-content`).classList.remove('hidden');
+            document.getElementById(`${type}-success`).classList.add('hidden');
+        }
+
+        function closeModal(type) {
+            document.getElementById(`modal-${type}`).classList.add('hidden');
+        }
+
+        function handleFakeSubmit(event, type) {
+            event.preventDefault(); // Stop actual submission
+            
+            // Show loading state (optional polish)
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = '送信中...';
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            // Simulate network delay
+            setTimeout(() => {
+                document.getElementById(`${type}-form-content`).classList.add('hidden');
+                document.getElementById(`${type}-success`).classList.remove('hidden');
+                
+                // Reset button for next time
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                event.target.reset(); // Clear form
+            }, 1500);
+        }
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Sticky Navbar effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('py-4', 'py-2');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('py-2', 'py-4');
+            }
+        });
+
+        // LINE Float Widget Logic
+        const lineBtn = document.getElementById('line-btn');
+        const linePopup = document.getElementById('line-popup');
+        const closePopup = document.getElementById('close-popup');
+        const lineTooltip = document.getElementById('line-tooltip');
+
+        lineBtn.addEventListener('click', () => {
+            linePopup.classList.toggle('hidden');
+            // Hide tooltip permanently when opened once
+            if (lineTooltip) lineTooltip.style.display = 'none';
+        });
+
+        closePopup.addEventListener('click', () => {
+            linePopup.classList.add('hidden');
+        });
+
+        // Intersection Observer for Fade-in Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden'); // Close mobile menu on click
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
