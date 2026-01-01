@@ -32,7 +32,10 @@
                         'sans': ['"Noto Sans JP"', 'sans-serif'],
                         'serif': ['"Noto Serif JP"', 'serif'],
                         'cinzel': ['"Cinzel"', 'serif'],
-                        'arabic': ['"Amiri"', 'serif'], // Font for Quran text
+                        'arabic': ['"Amiri"', 'serif'],
+                    },
+                    screens: {
+                        'xs': '480px', // Extra small devices
                     }
                 }
             }
@@ -45,6 +48,8 @@
             font-family: 'Noto Sans JP', sans-serif;
             color: #333;
             overflow-x: hidden;
+            /* Prevent horizontal scroll on mobile */
+            width: 100%; 
         }
 
         h1, h2, h3, h4 {
@@ -63,16 +68,21 @@
 
         /* Parallax Backgrounds */
         .parallax {
-            background-attachment: fixed;
+            background-attachment: scroll; /* Mobile friendly: changed from fixed to scroll for better performance */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+        }
+        @media (min-width: 768px) {
+            .parallax {
+                background-attachment: fixed;
+            }
         }
 
         /* Fade In Animation */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
@@ -101,14 +111,14 @@
 <body class="bg-arab-sand">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 glass-nav">
-        <div class="container mx-auto px-6 flex justify-between items-center">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-3 md:py-4 glass-nav">
+        <div class="container mx-auto px-5 md:px-6 flex justify-between items-center">
             <!-- Logo Area -->
-            <a href="#" class="flex items-center gap-3 group">
-                <img src="https://github.com/tochigiagriculturalacademy/homepage/blob/main/Gemini_Generated_Image_hfkqoshfkqoshfkq.png?raw=true" alt="Association Logo" class="h-12 w-12 rounded-full border-2 border-arab-gold object-cover group-hover:scale-105 transition-transform">
+            <a href="#" class="flex items-center gap-2 md:gap-3 group">
+                <img src="https://github.com/tochigiagriculturalacademy/homepage/blob/main/Gemini_Generated_Image_hfkqoshfkqoshfkq.png?raw=true" alt="Association Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-arab-gold object-cover group-hover:scale-105 transition-transform">
                 <div>
-                    <span class="block text-sm text-arab-gold font-bold tracking-widest font-cinzel">JANFA</span>
-                    <span class="block text-lg font-serif text-arab-dark font-bold leading-none">アラブ遊牧民族友好協会日本支部</span>
+                    <span class="block text-xs md:text-sm text-arab-gold font-bold tracking-widest font-cinzel">JANFA</span>
+                    <span class="block text-sm md:text-lg font-serif text-arab-dark font-bold leading-none">アラブ遊牧民族友好協会<span class="hidden xs:inline">日本支部</span></span>
                 </div>
             </a>
 
@@ -128,84 +138,85 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="xl:hidden text-arab-dark text-2xl focus:outline-none">
+            <button id="mobile-menu-btn" class="xl:hidden text-arab-dark text-xl p-2 focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden xl:hidden bg-white border-t border-gray-100 absolute w-full max-h-screen overflow-y-auto shadow-xl">
-            <div class="flex flex-col p-6 space-y-4">
-                <a href="#about" class="text-arab-dark hover:text-arab-gold">協会について</a>
-                <a href="#facility" class="text-arab-dark hover:text-arab-gold">施設案内</a>
-                <a href="#activities" class="text-arab-dark hover:text-arab-gold">活動内容</a>
-                <a href="#quran" class="text-arab-dark hover:text-arab-gold">文化コラム</a>
-                <a href="#gallery" class="text-arab-dark hover:text-arab-gold">ギャラリー</a>
-                <a href="#access" class="text-arab-dark hover:text-arab-gold">アクセス</a>
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-t border-gray-100 absolute w-full max-h-[80vh] overflow-y-auto shadow-xl">
+            <div class="flex flex-col p-6 space-y-5">
+                <a href="#about" class="text-arab-dark hover:text-arab-gold text-lg border-b border-gray-50 pb-2">協会について</a>
+                <a href="#facility" class="text-arab-dark hover:text-arab-gold text-lg border-b border-gray-50 pb-2">施設案内</a>
+                <a href="#activities" class="text-arab-dark hover:text-arab-gold text-lg border-b border-gray-50 pb-2">活動内容</a>
+                <a href="#quran" class="text-arab-dark hover:text-arab-gold text-lg border-b border-gray-50 pb-2">文化コラム</a>
+                <a href="#gallery" class="text-arab-dark hover:text-arab-gold text-lg border-b border-gray-50 pb-2">ギャラリー</a>
+                <a href="#access" class="text-arab-dark hover:text-arab-gold text-lg border-b border-gray-50 pb-2">アクセス</a>
                 <!-- Link to HQ Mobile -->
-                <a href="https://cfandf.github.io/JANFA/ANFA" target="_blank" rel="noopener noreferrer" class="text-arab-dark hover:text-arab-gold flex items-center gap-2">
-                    <i class="fas fa-globe text-arab-gold"></i> 国際本部 (ANFA) 公式サイト
+                <a href="https://cfandf.github.io/JANFA/ANFA" target="_blank" rel="noopener noreferrer" class="text-arab-dark hover:text-arab-gold flex items-center gap-2 text-lg border-b border-gray-50 pb-2">
+                    <i class="fas fa-globe text-arab-gold"></i> 国際本部 (ANFA)
                 </a>
-                <a href="#contact" class="text-arab-gold font-bold">お問い合わせ</a>
+                <a href="#contact" class="text-arab-gold font-bold text-lg pt-2">お問い合わせ</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+    <!-- h-[100dvh] ensures it fits mobile screen exactly including address bar -->
+    <header class="relative h-[100dvh] flex items-center justify-center overflow-hidden">
         <!-- Background Image (Desert 1) -->
         <div class="absolute inset-0 z-0 parallax" style="background-image: url('https://www.free-materials.com/adm/wp-content/uploads/2024/10/adpIMG_4995-.jpg');"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-arab-dark/80 z-10"></div> <!-- Overlay -->
         
-        <div class="relative z-20 text-center text-white px-4 fade-in-up">
-            <p class="text-arab-gold font-cinzel text-xl md:text-2xl mb-4 tracking-[0.3em] uppercase drop-shadow-md">Bridging Cultures</p>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight drop-shadow-lg">
+        <div class="relative z-20 text-center text-white px-5 fade-in-up">
+            <p class="text-arab-gold font-cinzel text-base md:text-xl lg:text-2xl mb-3 md:mb-4 tracking-[0.2em] md:tracking-[0.3em] uppercase drop-shadow-md">Bridging Cultures</p>
+            <h1 class="text-3xl md:text-5xl lg:text-7xl font-serif font-bold mb-4 md:mb-6 leading-tight drop-shadow-lg">
                 砂漠と桜の絆。<br>
-                <span class="text-3xl md:text-5xl font-light mt-4 block">新たな友情の地平線へ</span>
+                <span class="text-2xl md:text-4xl lg:text-5xl font-light mt-2 md:mt-4 block">新たな友情の地平線へ</span>
             </h1>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-gray-200 leading-relaxed drop-shadow">
+            <p class="text-sm md:text-lg lg:text-xl max-w-2xl mx-auto mb-8 md:mb-10 text-gray-200 leading-relaxed drop-shadow">
                 悠久のアラブ遊牧文化と日本の精神が出会う場所。<br>
                 私たちは、文化・芸術・対話を通じて、<br class="hidden md:inline">心の国境を越える架け橋となります。
             </p>
-            <a href="#about" class="inline-block border-2 border-arab-gold text-arab-gold hover:bg-arab-gold hover:text-white px-10 py-3 rounded-none transition-all duration-300 tracking-widest uppercase font-cinzel">
+            <a href="#about" class="inline-block border border-arab-gold text-arab-gold hover:bg-arab-gold hover:text-white px-8 py-3 md:px-10 md:py-3 rounded-none transition-all duration-300 tracking-widest uppercase font-cinzel text-sm md:text-base">
                 Explore More
             </a>
             
             <!-- Scroll Down Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <i class="fas fa-chevron-down text-2xl text-arab-gold/70"></i>
+            <div class="absolute bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-xl md:text-2xl text-arab-gold/70"></i>
             </div>
         </div>
     </header>
 
-    <!-- Breaking News Section (New) -->
-    <div class="container mx-auto px-4 mt-12 mb-12 fade-in-up">
+    <!-- Breaking News Section -->
+    <div class="container mx-auto px-4 mt-8 md:mt-12 mb-12 fade-in-up">
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row border-t-4 border-arab-gold">
-            <!-- Image Area -->
-            <div class="md:w-2/5 relative min-h-[250px] group">
+            <!-- Image Area: Smaller height on mobile -->
+            <div class="md:w-2/5 relative h-48 md:h-auto min-h-[200px] md:min-h-[250px] group">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Sfiha2.jpg" alt="Sfiha" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute top-4 left-4 bg-arab-accent text-white font-bold px-4 py-1 rounded shadow-lg text-sm tracking-wider animate-pulse">
+                <div class="absolute top-4 left-4 bg-arab-accent text-white font-bold px-3 py-1 md:px-4 rounded shadow-lg text-xs md:text-sm tracking-wider animate-pulse">
                     NEW PROJECT
                 </div>
                 <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition duration-300"></div>
             </div>
-            <!-- Content Area -->
-            <div class="md:w-3/5 p-8 md:p-10 flex flex-col justify-center">
-                <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-3">
+            <!-- Content Area: Adjusted padding -->
+            <div class="md:w-3/5 p-6 md:p-10 flex flex-col justify-center">
+                <div class="flex flex-wrap items-center gap-2 md:gap-3 text-xs md:text-sm text-gray-500 mb-2 md:mb-3">
                     <span class="text-arab-gold font-bold">2026.01.02</span>
-                    <span class="w-px h-4 bg-gray-300"></span>
-                    <span class="bg-gray-100 px-2 py-0.5 rounded text-xs font-bold text-gray-600">COLLABORATION</span>
+                    <span class="w-px h-3 md:h-4 bg-gray-300"></span>
+                    <span class="bg-gray-100 px-2 py-0.5 rounded text-[10px] md:text-xs font-bold text-gray-600">COLLABORATION</span>
                 </div>
-                <h3 class="text-2xl md:text-3xl font-serif font-bold text-arab-dark mb-4 leading-snug">
+                <h3 class="text-xl md:text-3xl font-serif font-bold text-arab-dark mb-3 md:mb-4 leading-snug">
                     <span class="text-arab-gold">提携校コラボ</span> 栃木農業学院と<br>伝統料理「スフィーハ」を共同制作！
                 </h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    提携している<span class="font-bold text-arab-dark">栃木農業学院（TAA）</span>の学生たちと共に、アラブの伝統的なミートパイ「スフィーハ (Sfiha)」を再現しました。
-                    学院で収穫された新鮮な野菜と、アラブ直輸入のスパイスが見事に融合。文化祭やイベントでの提供を予定しています。
+                <p class="text-sm md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed">
+                    提携している<span class="font-bold text-arab-dark">栃木農業学院（TAA）</span>の学生たちと共に、アラブの伝統的なミートパイ「スフィーハ」を再現しました。
+                    新鮮な野菜とスパイスが見事に融合。イベントでの提供を予定しています。
                 </p>
-                <div class="flex items-center gap-6">
-                    <a href="https://tochigiagriculturalacademy.github.io/homepage/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-arab-gold font-bold hover:underline group">
-                        栃木農業学院 公式サイトへ <i class="fas fa-external-link-alt ml-2 text-sm group-hover:translate-x-1 transition-transform"></i>
+                <div class="flex items-center gap-4 md:gap-6">
+                    <a href="https://tochigiagriculturalacademy.github.io/homepage/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-arab-gold font-bold hover:underline group text-sm md:text-base">
+                        栃木農業学院 公式サイトへ <i class="fas fa-external-link-alt ml-2 text-xs group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
             </div>
@@ -213,61 +224,61 @@
     </div>
 
     <!-- About Section -->
-    <section id="about" class="py-24 bg-white relative overflow-hidden">
+    <section id="about" class="py-16 md:py-24 bg-white relative overflow-hidden">
         <!-- Decorative Background -->
-        <div class="absolute top-0 right-0 w-2/5 h-full bg-arab-sand/40 -z-10 skew-x-12 transform origin-top-right"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-arab-gold/5 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute top-0 right-0 w-1/2 md:w-2/5 h-full bg-arab-sand/40 -z-10 skew-x-12 transform origin-top-right"></div>
+        <div class="absolute bottom-0 left-0 w-48 h-48 md:w-64 md:h-64 bg-arab-gold/5 rounded-full blur-3xl -z-10"></div>
         
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-16">
+        <div class="container mx-auto px-5 md:px-6">
+            <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
                 <!-- Text Content -->
                 <div class="md:w-1/2 fade-in-up">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-16 h-[2px] bg-arab-gold"></div>
-                        <h2 class="text-arab-gold font-cinzel text-lg tracking-wider">About Us</h2>
+                    <div class="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+                        <div class="w-12 md:w-16 h-[2px] bg-arab-gold"></div>
+                        <h2 class="text-arab-gold font-cinzel text-base md:text-lg tracking-wider">About Us</h2>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark mb-8 leading-snug">
+                    <h3 class="text-2xl md:text-4xl font-serif font-bold text-arab-dark mb-6 leading-snug">
                         遊牧の知恵と<br>和の心が響き合う場所
                     </h3>
-                    <p class="text-gray-600 mb-6 leading-loose text-justify">
+                    <p class="text-sm md:text-base text-gray-600 mb-4 md:mb-6 leading-loose text-justify">
                         アラブ遊牧民族友好協会日本支部は、地理的な距離を超え、日本とアラブの遊牧文化を持つ人々が心を通わせる場を提供するために設立されました。
-                        砂漠という過酷な環境で培われた「おもてなし（ホスピタリティ）」の精神は、日本人の「おもてなし」の心と深く通ずるものがあります。
+                        砂漠という過酷な環境で培われた「おもてなし」の精神は、日本人の心と深く通ずるものがあります。
                     </p>
-                    <p class="text-gray-600 mb-6 leading-loose text-justify">
+                    <p class="text-sm md:text-base text-gray-600 mb-6 leading-loose text-justify">
                         私たちは、互いの違いを尊重し、芸術、食文化、歴史的対話を通じて、新しい時代の友情を育むことを使命としています。伝統的なアラベスク模様のように、私たちの関係も美しく、強固に結ばれていくことを願っています。
                     </p>
                     
                     <!-- Link to HQ Button in About Section -->
-                    <div class="mb-10">
-                        <a href="https://cfandf.github.io/JANFA/ANFA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-arab-gold font-bold border border-arab-gold px-6 py-2 rounded-full hover:bg-arab-gold hover:text-white transition-all shadow-sm">
+                    <div class="mb-8 md:mb-10">
+                        <a href="https://cfandf.github.io/JANFA/ANFA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-arab-gold font-bold border border-arab-gold px-5 py-2 md:px-6 rounded-full hover:bg-arab-gold hover:text-white transition-all shadow-sm text-sm md:text-base">
                             <i class="fas fa-globe"></i> 国際本部 (ANFA) 公式サイトへ
                         </a>
                     </div>
                     
                     <div class="flex gap-4">
                         <div class="flex flex-col">
-                            <span class="text-4xl font-cinzel text-arab-gold font-bold">20+</span>
-                            <span class="text-sm text-gray-500">Years of Friendship</span>
+                            <span class="text-3xl md:text-4xl font-cinzel text-arab-gold font-bold">20+</span>
+                            <span class="text-xs md:text-sm text-gray-500">Years of Friendship</span>
                         </div>
-                        <div class="w-[1px] bg-gray-300 h-12"></div>
+                        <div class="w-[1px] bg-gray-300 h-10 md:h-12"></div>
                         <div class="flex flex-col">
-                            <span class="text-4xl font-cinzel text-arab-gold font-bold">500+</span>
-                            <span class="text-sm text-gray-500">Events Held</span>
+                            <span class="text-3xl md:text-4xl font-cinzel text-arab-gold font-bold">500+</span>
+                            <span class="text-xs md:text-sm text-gray-500">Events Held</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Image Grid -->
-                <div class="md:w-1/2 relative fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="grid grid-cols-2 gap-4">
-                        <img src="https://www.free-materials.com/adm/wp-content/uploads/2024/10/adpIMG_5100-.jpg" alt="Minaret" class="rounded-lg shadow-xl w-full h-80 object-cover transform translate-y-8 grayscale-[10%] hover:grayscale-0 transition duration-700">
-                        <div class="space-y-4">
+                <div class="md:w-1/2 relative fade-in-up w-full" style="transition-delay: 0.2s;">
+                    <div class="grid grid-cols-2 gap-3 md:gap-4">
+                        <img src="https://www.free-materials.com/adm/wp-content/uploads/2024/10/adpIMG_5100-.jpg" alt="Minaret" class="rounded-lg shadow-xl w-full h-56 md:h-80 object-cover transform translate-y-6 md:translate-y-8 grayscale-[10%] hover:grayscale-0 transition duration-700">
+                        <div class="space-y-3 md:space-y-4">
                             <!-- Library Image -->
-                            <img src="https://images.unsplash.com/photo-1588618319407-948d4424befd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzU5fHxhcmFifGVufDB8fDB8fHww" alt="Middle East Library" class="rounded-lg shadow-xl w-full h-48 object-cover grayscale-[10%] hover:grayscale-0 transition duration-700">
+                            <img src="https://images.unsplash.com/photo-1588618319407-948d4424befd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzU5fHxhcmFifGVufDB8fDB8fHww" alt="Middle East Library" class="rounded-lg shadow-xl w-full h-32 md:h-48 object-cover grayscale-[10%] hover:grayscale-0 transition duration-700">
                             <!-- Decorative Box -->
-                            <div class="bg-arab-dark p-6 rounded-lg text-white shadow-xl h-28 flex items-center justify-center relative overflow-hidden group">
+                            <div class="bg-arab-dark p-4 md:p-6 rounded-lg text-white shadow-xl h-24 md:h-28 flex items-center justify-center relative overflow-hidden group">
                                 <img src="https://www.free-materials.com/adm/wp-content/uploads/2024/06/adpIMG_2573-.jpg" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700">
-                                <span class="relative font-serif font-bold text-lg tracking-widest z-10">文化の交差点</span>
+                                <span class="relative font-serif font-bold text-base md:text-lg tracking-widest z-10">文化の交差点</span>
                             </div>
                         </div>
                     </div>
@@ -276,80 +287,79 @@
         </div>
     </section>
 
-    <!-- Facility Section (Inspired by Tokyo Camii) -->
-    <section id="facility" class="py-24 bg-gray-50 pattern-overlay-light relative">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-arab-gold font-cinzel text-xl mb-2">Our Facility</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark">アラブ文化センターのご案内</h3>
-                <p class="mt-4 text-gray-500 max-w-2xl mx-auto">
+    <!-- Facility Section -->
+    <section id="facility" class="py-16 md:py-24 bg-gray-50 pattern-overlay-light relative">
+        <div class="container mx-auto px-5 md:px-6">
+            <div class="text-center mb-10 md:mb-16 fade-in-up">
+                <h2 class="text-arab-gold font-cinzel text-lg md:text-xl mb-2">Our Facility</h2>
+                <h3 class="text-2xl md:text-4xl font-serif font-bold text-arab-dark">アラブ文化センターのご案内</h3>
+                <p class="mt-4 text-sm md:text-base text-gray-500 max-w-2xl mx-auto">
                     東京・桜見町に位置する私たちの拠点は、誰もが気軽にアラブ・イスラム文化に触れられるオープンスペースです。
-                    美しい幾何学模様に包まれた空間で、安らぎのひとときをお過ごしください。
                 </p>
             </div>
 
             <!-- Main Feature -->
-            <div class="grid md:grid-cols-2 gap-0 shadow-2xl rounded-2xl overflow-hidden mb-16 fade-in-up bg-white">
-                <div class="relative h-[400px] md:h-auto">
+            <div class="grid md:grid-cols-2 gap-0 shadow-2xl rounded-2xl overflow-hidden mb-12 md:mb-16 fade-in-up bg-white">
+                <div class="relative h-64 md:h-auto">
                     <!-- Unsplash Image for Mosque Interior/Hall -->
                     <img src="https://images.unsplash.com/photo-1577561425536-51f550bf91d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjUwfHxtb3NxdWV8ZW58MHx8MHx8fDA%3D" alt="Main Hall" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-8 w-full">
-                        <h4 class="text-white text-2xl font-serif font-bold">多目的ホール・礼拝スペース</h4>
-                        <p class="text-gray-200 text-sm mt-2">※画像はイメージです</p>
+                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 to-transparent p-6 md:p-8 w-full">
+                        <h4 class="text-white text-xl md:text-2xl font-serif font-bold">多目的ホール・礼拝スペース</h4>
+                        <p class="text-gray-200 text-xs md:text-sm mt-1">※画像はイメージです</p>
                     </div>
                 </div>
-                <div class="p-10 md:p-16 flex flex-col justify-center bg-white relative">
+                <div class="p-6 md:p-16 flex flex-col justify-center bg-white relative">
                     <!-- Arabesque Watermark -->
-                    <i class="fas fa-mosque absolute -right-10 -bottom-10 text-9xl text-gray-50 pointer-events-none"></i>
+                    <i class="fas fa-mosque absolute -right-10 -bottom-10 text-8xl md:text-9xl text-gray-50 pointer-events-none"></i>
                     
-                    <h4 class="text-2xl font-bold text-arab-dark mb-6 font-serif border-b-2 border-arab-gold pb-4 inline-block">見学・交流の場として</h4>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
+                    <h4 class="text-xl md:text-2xl font-bold text-arab-dark mb-4 md:mb-6 font-serif border-b-2 border-arab-gold pb-3 md:pb-4 inline-block">見学・交流の場として</h4>
+                    <p class="text-sm md:text-base text-gray-600 mb-6 leading-relaxed">
                         最大200名を収容できるホールでは、講演会や文化イベントを開催しています。また、静寂に包まれた礼拝スペースは見学も可能です（要予約）。
-                        天井に施されたカリグラフィーと、ステンドグラスから差し込む光が織りなす幻想的な空間は、訪れる人々の心を洗います。
+                        ステンドグラスから差し込む光が織りなす幻想的な空間は、訪れる人々の心を洗います。
                     </p>
-                    <ul class="space-y-3 mb-8">
+                    <ul class="space-y-2 md:space-y-3 mb-6 md:mb-8 text-sm md:text-base">
                         <li class="flex items-center text-gray-600"><i class="fas fa-check text-arab-gold mr-3"></i> どなたでも見学自由（団体は要予約）</li>
                         <li class="flex items-center text-gray-600"><i class="fas fa-check text-arab-gold mr-3"></i> 日本語ガイドによる案内あり</li>
                         <li class="flex items-center text-gray-600"><i class="fas fa-check text-arab-gold mr-3"></i> バリアフリー対応</li>
                     </ul>
-                    <a href="#contact" class="inline-flex items-center text-arab-gold font-bold hover:underline">
+                    <a href="#contact" class="inline-flex items-center text-arab-gold font-bold hover:underline text-sm md:text-base">
                         見学を予約する <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Sub Facilities -->
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
                 <!-- Library -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-arab-gold group hover:transform hover:-translate-y-1 transition-all fade-in-up">
-                    <div class="w-14 h-14 bg-arab-sand rounded-full flex items-center justify-center text-arab-dark text-2xl mb-6 group-hover:bg-arab-dark group-hover:text-arab-gold transition-colors">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg border-b-4 border-arab-gold group hover:transform hover:-translate-y-1 transition-all fade-in-up">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-arab-sand rounded-full flex items-center justify-center text-arab-dark text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-arab-dark group-hover:text-arab-gold transition-colors">
                         <i class="fas fa-book-reader"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">図書・資料コーナー</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        アラブの歴史、美術、宗教に関する日本語・アラビア語の書籍を多数所蔵。静かな環境で読書や学習ができます。
+                    <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3">図書・資料コーナー</h4>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                        アラブの歴史、美術、宗教に関する書籍を多数所蔵。静かな環境で学習ができます。
                     </p>
                 </div>
 
                 <!-- Market -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-arab-accent group hover:transform hover:-translate-y-1 transition-all fade-in-up" style="transition-delay: 0.1s;">
-                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-arab-accent text-2xl mb-6 group-hover:bg-arab-accent group-hover:text-white transition-colors">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg border-b-4 border-arab-accent group hover:transform hover:-translate-y-1 transition-all fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-orange-100 rounded-full flex items-center justify-center text-arab-accent text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-arab-accent group-hover:text-white transition-colors">
                         <i class="fas fa-shopping-basket"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">ハラールマーケット</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        デーツ（ナツメヤシ）やスパイス、ハラール食品、雑貨などを販売。本場の味をご家庭でお楽しみいただけます。
+                    <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3">ハラールマーケット</h4>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                        デーツやスパイス、ハラール食品などを販売。本場の味をご家庭でお楽しみいただけます。
                     </p>
                 </div>
 
                 <!-- Salon -->
-                <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-arab-green group hover:transform hover:-translate-y-1 transition-all fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center text-arab-green text-2xl mb-6 group-hover:bg-arab-green group-hover:text-white transition-colors">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg border-b-4 border-arab-green group hover:transform hover:-translate-y-1 transition-all fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 md:w-14 md:h-14 bg-green-100 rounded-full flex items-center justify-center text-arab-green text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-arab-green group-hover:text-white transition-colors">
                         <i class="fas fa-coffee"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">ゲストサロン</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        アラビックコーヒーやチャイを飲みながら歓談できる休憩スペース。会員同士の交流の場として人気です。
+                    <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3">ゲストサロン</h4>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">
+                        アラビックコーヒーやチャイを飲みながら歓談できるスペース。交流の場として人気です。
                     </p>
                 </div>
             </div>
@@ -357,144 +367,125 @@
     </section>
 
     <!-- Activities Section -->
-    <section id="activities" class="py-24 bg-arab-dark text-white pattern-overlay">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 fade-in-up">
+    <section id="activities" class="py-16 md:py-24 bg-arab-dark text-white pattern-overlay">
+        <div class="container mx-auto px-5 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10 md:mb-16 fade-in-up">
                 <div>
-                    <h2 class="text-arab-gold font-cinzel text-xl mb-2">Our Activities</h2>
-                    <h3 class="text-3xl md:text-4xl font-serif font-bold">活動紹介</h3>
+                    <h2 class="text-arab-gold font-cinzel text-lg md:text-xl mb-2">Our Activities</h2>
+                    <h3 class="text-2xl md:text-4xl font-serif font-bold">活動紹介</h3>
                 </div>
                 <a href="#contact" class="hidden md:inline-block mt-4 md:mt-0 text-gray-300 hover:text-white border-b border-gray-500 hover:border-white transition-colors pb-1">
                     イベントカレンダーを見る <i class="fas fa-calendar-alt ml-2"></i>
                 </a>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
                 <!-- Activity 1 -->
                 <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-white/10 transition-colors duration-300 fade-in-up border border-white/5 hover:border-arab-gold/30">
-                    <div class="h-60 overflow-hidden relative">
+                    <div class="h-48 md:h-60 overflow-hidden relative">
                         <!-- Hummus Image -->
                         <img src="https://plus.unsplash.com/premium_photo-1667428304100-a1e05281347f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjk2fHxhcmFifGVufDB8fDB8fHww" alt="Hummus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4 bg-arab-gold text-white text-xs font-bold px-3 py-1 rounded-full">Monthly</div>
                     </div>
-                    <div class="p-8">
-                        <div class="text-arab-gold text-2xl mb-3"><i class="fas fa-glass-cheers"></i></div>
-                        <h4 class="text-xl font-bold mb-3 font-serif">晩餐会・交流会</h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            定期的に開催される晩餐会では、本格的なアラブ料理（フムスやケバブなど）と音楽を楽しみながら、会員同士の親睦を深めています。
+                    <div class="p-6 md:p-8">
+                        <div class="text-arab-gold text-xl md:text-2xl mb-3"><i class="fas fa-glass-cheers"></i></div>
+                        <h4 class="text-lg md:text-xl font-bold mb-3 font-serif">晩餐会・交流会</h4>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed mb-4">
+                            本格的なアラブ料理（フムスやケバブなど）と音楽を楽しみながら、会員同士の親睦を深めています。
                         </p>
                     </div>
                 </div>
 
                 <!-- Activity 2 -->
                 <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-white/10 transition-colors duration-300 fade-in-up border border-white/5 hover:border-arab-gold/30" style="transition-delay: 0.1s;">
-                    <div class="h-60 overflow-hidden relative">
+                    <div class="h-48 md:h-60 overflow-hidden relative">
                         <!-- Air Arabia Image -->
                         <img src="https://images.unsplash.com/photo-1760372508996-3a69cb765f76?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjMwfHxhcmFifGVufDB8fDB8fHww" alt="Air Arabia" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4 bg-arab-accent text-white text-xs font-bold px-3 py-1 rounded-full">Special</div>
                     </div>
-                    <div class="p-8">
-                        <div class="text-arab-gold text-2xl mb-3"><i class="fas fa-plane-departure"></i></div>
-                        <h4 class="text-xl font-bold mb-3 font-serif">スタディツアー</h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                            アラブ諸国へのスタディツアーを企画。遺跡巡りや現地家庭へのホームステイなど、観光旅行では味わえない深い体験を提供します。
+                    <div class="p-6 md:p-8">
+                        <div class="text-arab-gold text-xl md:text-2xl mb-3"><i class="fas fa-plane-departure"></i></div>
+                        <h4 class="text-lg md:text-xl font-bold mb-3 font-serif">スタディツアー</h4>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed mb-4">
+                            アラブ諸国へのスタディツアーを企画。遺跡巡りやホームステイなど、観光旅行では味わえない深い体験を提供。
                         </p>
                     </div>
                 </div>
 
                 <!-- Activity 3 -->
                 <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden group hover:bg-white/10 transition-colors duration-300 fade-in-up border border-white/5 hover:border-arab-gold/30" style="transition-delay: 0.2s;">
-                    <div class="h-60 overflow-hidden relative">
+                    <div class="h-48 md:h-60 overflow-hidden relative">
                         <!-- Graffiti Image -->
                         <img src="https://images.unsplash.com/photo-1636055308873-005585fbb11d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA0fHxhcmFiaWN8ZW58MHx8MHx8fDA%3D" alt="Arabic Graffiti" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4 bg-arab-green text-white text-xs font-bold px-3 py-1 rounded-full">Weekly</div>
                     </div>
-                    <div class="p-8">
-                        <div class="text-arab-gold text-2xl mb-3"><i class="fas fa-book-open"></i></div>
-                        <h4 class="text-xl font-bold mb-3 font-serif">語学・文化講座</h4>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                    <div class="p-6 md:p-8">
+                        <div class="text-arab-gold text-xl md:text-2xl mb-3"><i class="fas fa-book-open"></i></div>
+                        <h4 class="text-lg md:text-xl font-bold mb-3 font-serif">語学・文化講座</h4>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed mb-4">
                             生きたアラビア語を学ぶ講座や、カリグラフィー教室を開催。街角の言葉から古典まで、幅広く言語の魅力に触れます。
                         </p>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center mt-12 md:hidden">
-                <a href="#contact" class="text-gray-300 border-b border-gray-500 pb-1">イベントカレンダーを見る</a>
+            <div class="text-center mt-10 md:hidden">
+                <a href="#contact" class="text-gray-300 border-b border-gray-500 pb-1 text-sm">イベントカレンダーを見る</a>
             </div>
         </div>
     </section>
 
-    <!-- Learn Quran Section (New) -->
-    <section id="quran" class="py-24 bg-arab-sand relative overflow-hidden">
+    <!-- Learn Quran Section -->
+    <section id="quran" class="py-16 md:py-24 bg-arab-sand relative overflow-hidden">
         <!-- Parallax Background for Quran Section -->
         <div class="absolute inset-0 opacity-10 pointer-events-none" 
              style="background-image: url('https://www.free-materials.com/adm/wp-content/uploads/2024/06/adpIMG_2573-.jpg'); background-size: cover; background-position: center;">
         </div>
 
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-16 flex flex-col lg:flex-row gap-12 items-center fade-in-up">
+        <div class="container mx-auto px-5 md:px-6 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-16 flex flex-col lg:flex-row gap-8 md:gap-12 items-center fade-in-up">
                 
                 <!-- Quran Image/Visual -->
-                <div class="lg:w-1/2 relative">
-                    <div class="relative rounded-2xl overflow-hidden shadow-lg border-8 border-double border-arab-gold/30 rotate-1 hover:rotate-0 transition-transform duration-500">
+                <div class="lg:w-1/2 relative w-full">
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg border-4 md:border-8 border-double border-arab-gold/30 rotate-1 hover:rotate-0 transition-transform duration-500">
                         <!-- New Quran Image -->
                         <img src="https://images.unsplash.com/photo-1590720367388-6cdfc716b933?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTk2fHxhcmFifGVufDB8fDB8fHww" alt="Holy Quran" class="w-full h-auto object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
-                            <span class="text-white font-cinzel text-sm tracking-widest mb-1">THE HOLY QURAN</span>
-                            <span class="text-white font-serif text-xl font-bold">言葉の奇跡に触れる</span>
+                            <span class="text-white font-cinzel text-xs md:text-sm tracking-widest mb-1">THE HOLY QURAN</span>
+                            <span class="text-white font-serif text-lg md:text-xl font-bold">言葉の奇跡に触れる</span>
                         </div>
                     </div>
-                    <!-- Decorative Element -->
-                    <div class="absolute -top-6 -left-6 text-6xl text-arab-gold opacity-30 font-serif">“</div>
                 </div>
 
                 <!-- Content -->
-                <div class="lg:w-1/2">
-                    <div class="inline-block bg-arab-dark text-arab-gold text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wider">CULTURE COLUMN</div>
-                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark mb-6">
+                <div class="lg:w-1/2 w-full">
+                    <div class="inline-block bg-arab-dark text-arab-gold text-[10px] md:text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-wider">CULTURE COLUMN</div>
+                    <h3 class="text-2xl md:text-4xl font-serif font-bold text-arab-dark mb-4 md:mb-6">
                         コーランを読んでみよう！
-                        <span class="block text-lg font-normal text-gray-500 mt-2">アラビア語の響きと意味の深淵</span>
+                        <span class="block text-sm md:text-lg font-normal text-gray-500 mt-2">アラビア語の響きと意味の深淵</span>
                     </h3>
                     
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        イスラム教の聖典「コーラン（クルアーン）」は、アラビア語で「読まれるもの」を意味します。
-                        そのリズミカルで美しい韻を踏んだ文章は、「言葉の奇跡」とも呼ばれ、朗誦（ろうしょう）される音の響きそのものが芸術とされています。
+                    <p class="text-sm md:text-base text-gray-600 mb-6 leading-relaxed">
+                        イスラム教の聖典「コーラン」は、アラビア語で「読まれるもの」を意味します。
+                        そのリズミカルで美しい韻を踏んだ文章は、「言葉の奇跡」とも呼ばれ、朗誦される音の響きそのものが芸術です。
                     </p>
 
                     <!-- Example Verse Box -->
-                    <div class="bg-arab-sand/30 border-l-4 border-arab-gold p-6 rounded-r-lg mb-8">
+                    <div class="bg-arab-sand/30 border-l-4 border-arab-gold p-4 md:p-6 rounded-r-lg mb-6 md:mb-8">
                         <div class="text-right mb-4">
-                            <p class="text-3xl font-bold text-arab-dark font-arabic leading-loose">
+                            <p class="text-2xl md:text-3xl font-bold text-arab-dark font-arabic leading-loose">
                                 بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                             </p>
                         </div>
                         <div class="text-left">
-                            <p class="text-sm text-gray-500 font-bold mb-1">[Bismillahi r-rahmani r-rahim]</p>
-                            <p class="text-lg font-serif text-gray-800">
+                            <p class="text-xs md:text-sm text-gray-500 font-bold mb-1">[Bismillahi r-rahmani r-rahim]</p>
+                            <p class="text-base md:text-lg font-serif text-gray-800">
                                 「慈悲あまねく慈愛深きアッラーの御名において」
                             </p>
-                            <p class="text-xs text-gray-500 mt-2">
-                                —— 開端の章（アル・ファーティハ）第1節
-                            </p>
-                        </div>
-                        <!-- Fake Audio Player UI -->
-                        <div class="mt-4 bg-white rounded-full p-2 flex items-center shadow-sm cursor-pointer hover:bg-gray-50 transition-colors w-full md:w-auto inline-flex group">
-                            <div class="w-8 h-8 bg-arab-gold rounded-full flex items-center justify-center text-white mr-3 group-hover:scale-110 transition-transform">
-                                <i class="fas fa-play ml-1 text-xs"></i>
-                            </div>
-                            <div class="flex-1 mr-4 h-1 bg-gray-200 rounded-full overflow-hidden">
-                                <div class="w-1/3 h-full bg-arab-dark"></div>
-                            </div>
-                            <span class="text-xs text-gray-500 font-mono">00:15</span>
                         </div>
                     </div>
 
-                    <p class="text-gray-600 mb-6 text-sm">
-                        当協会では、宗教的な勧誘ではなく、文化的・言語的側面からコーランに親しむ「アラビア語朗読会」や「カリグラフィー体験」も実施しています。美しい文字と音の世界を覗いてみませんか？
-                    </p>
-
-                    <a href="#contact" class="text-arab-dark font-bold border-b-2 border-arab-gold hover:text-arab-gold transition-colors pb-1 inline-flex items-center">
+                    <a href="#contact" class="text-arab-dark font-bold border-b-2 border-arab-gold hover:text-arab-gold transition-colors pb-1 inline-flex items-center text-sm md:text-base">
                         講座の詳細を聞く <i class="fas fa-angle-right ml-2"></i>
                     </a>
                 </div>
@@ -502,57 +493,57 @@
         </div>
     </section>
 
-    <!-- FAQ Section (New) -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-arab-gold font-cinzel text-xl mb-2">Q&A</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark">よくある質問</h3>
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="container mx-auto px-5 md:px-6">
+            <div class="text-center mb-10 md:mb-16 fade-in-up">
+                <h2 class="text-arab-gold font-cinzel text-lg md:text-xl mb-2">Q&A</h2>
+                <h3 class="text-2xl md:text-4xl font-serif font-bold text-arab-dark">よくある質問</h3>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto fade-in-up">
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto fade-in-up">
                 <!-- Q1 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
-                    <h4 class="flex items-start text-lg font-bold text-arab-dark mb-4">
-                        <span class="text-arab-gold text-2xl mr-3 font-cinzel">Q.</span>
-                        イスラム教徒（ムスリム）でなくても入会できますか？
+                <div class="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100">
+                    <h4 class="flex items-start text-base md:text-lg font-bold text-arab-dark mb-3 md:mb-4">
+                        <span class="text-arab-gold text-xl md:text-2xl mr-3 font-cinzel">Q.</span>
+                        イスラム教徒でなくても入会できますか？
                     </h4>
-                    <p class="text-gray-600 leading-relaxed pl-8">
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed pl-7 md:pl-8">
                         <span class="font-bold text-arab-gold block mb-1">A.</span>
-                        もちろんです。当協会は文化交流を目的としており、宗教や国籍を問わず、アラブ文化に関心のあるすべての方を歓迎しています。会員の半数以上は日本人です。
+                        もちろんです。宗教や国籍を問わず、アラブ文化に関心のあるすべての方を歓迎しています。会員の半数以上は日本人です。
                     </p>
                 </div>
                 <!-- Q2 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
-                    <h4 class="flex items-start text-lg font-bold text-arab-dark mb-4">
-                        <span class="text-arab-gold text-2xl mr-3 font-cinzel">Q.</span>
-                        イベント参加時の服装に決まりはありますか？
+                <div class="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100">
+                    <h4 class="flex items-start text-base md:text-lg font-bold text-arab-dark mb-3 md:mb-4">
+                        <span class="text-arab-gold text-xl md:text-2xl mr-3 font-cinzel">Q.</span>
+                        イベント参加時の服装に決まりは？
                     </h4>
-                    <p class="text-gray-600 leading-relaxed pl-8">
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed pl-7 md:pl-8">
                         <span class="font-bold text-arab-gold block mb-1">A.</span>
-                        基本的には自由ですが、モスク（礼拝堂）内部の見学時のみ、露出の多い服装（短パン、ノースリーブ等）はご遠慮いただいております。女性の方はスカーフの着用をお願いする場合があります（貸出あり）。
+                        基本的には自由ですが、モスク見学時のみ露出の多い服装はご遠慮ください。女性はスカーフの着用をお願いする場合があります。
                     </p>
                 </div>
                 <!-- Q3 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
-                    <h4 class="flex items-start text-lg font-bold text-arab-dark mb-4">
-                        <span class="text-arab-gold text-2xl mr-3 font-cinzel">Q.</span>
-                        アラビア語が全く話せませんが大丈夫ですか？
+                <div class="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100">
+                    <h4 class="flex items-start text-base md:text-lg font-bold text-arab-dark mb-3 md:mb-4">
+                        <span class="text-arab-gold text-xl md:text-2xl mr-3 font-cinzel">Q.</span>
+                        アラビア語が全く話せませんが？
                     </h4>
-                    <p class="text-gray-600 leading-relaxed pl-8">
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed pl-7 md:pl-8">
                         <span class="font-bold text-arab-gold block mb-1">A.</span>
-                        全く問題ありません。イベントや講座は日本語で行われます。アラビア語講座も「あいうえお」レベルからスタートするクラスをご用意しています。
+                        全く問題ありません。イベントや講座は日本語で行われます。入門クラスもご用意しています。
                     </p>
                 </div>
                 <!-- Q4 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100">
-                    <h4 class="flex items-start text-lg font-bold text-arab-dark mb-4">
-                        <span class="text-arab-gold text-2xl mr-3 font-cinzel">Q.</span>
+                <div class="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100">
+                    <h4 class="flex items-start text-base md:text-lg font-bold text-arab-dark mb-3 md:mb-4">
+                        <span class="text-arab-gold text-xl md:text-2xl mr-3 font-cinzel">Q.</span>
                         子供連れでも参加できますか？
                     </h4>
-                    <p class="text-gray-600 leading-relaxed pl-8">
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed pl-7 md:pl-8">
                         <span class="font-bold text-arab-gold block mb-1">A.</span>
-                        はい、歓迎いたします。ファミリー向けの料理教室や文化体験イベントも定期的に開催しています。施設内には授乳スペースもございます。
+                        はい、歓迎いたします。ファミリー向けのイベントも開催しており、授乳スペースもございます。
                     </p>
                 </div>
             </div>
@@ -560,32 +551,32 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in-up">
-                <h2 class="text-arab-gold font-cinzel text-xl mb-2">Moments</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-arab-dark">日本とアラブの風景</h3>
-                <p class="mt-4 text-gray-500">会員が撮影した、両地域の日常と非日常。</p>
+    <section id="gallery" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-5 md:px-6">
+            <div class="text-center mb-10 md:mb-16 fade-in-up">
+                <h2 class="text-arab-gold font-cinzel text-lg md:text-xl mb-2">Moments</h2>
+                <h3 class="text-2xl md:text-4xl font-serif font-bold text-arab-dark">日本とアラブの風景</h3>
+                <p class="mt-4 text-sm md:text-base text-gray-500">会員が撮影した、両地域の日常と非日常。</p>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[160px] md:auto-rows-[200px]">
                 <!-- Large Item (Arab Road) - Linked to UNICEF -->
                 <a href="https://www.unicef.org/emergencies/children-gaza-need-lifesaving-support" target="_blank" rel="noopener noreferrer" class="col-span-2 row-span-2 rounded-xl overflow-hidden relative group fade-in-up cursor-pointer block">
                     <img src="https://images.unsplash.com/photo-1663530079695-f7bea03451bd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTkyfHxhcmFifGVufDB8fDB8fHww" alt="Arab Road" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
-                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 w-full translate-y-2 group-hover:translate-y-0 transition duration-300">
-                        <span class="text-white text-lg font-bold font-serif flex items-center gap-2">果てしなき道 <i class="fas fa-external-link-alt text-xs opacity-70"></i></span>
-                        <p class="text-gray-300 text-xs mt-1 opacity-0 group-hover:opacity-100 transition duration-300">ガザの人道支援（UNICEF）</p>
+                    <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 md:p-6 w-full translate-y-2 group-hover:translate-y-0 transition duration-300">
+                        <span class="text-white text-base md:text-lg font-bold font-serif flex items-center gap-2">果てしなき道 <i class="fas fa-external-link-alt text-xs opacity-70"></i></span>
+                        <p class="text-gray-300 text-[10px] md:text-xs mt-1 opacity-0 group-hover:opacity-100 transition duration-300">ガザの人道支援（UNICEF）</p>
                     </div>
                 </a>
                 
-                <!-- Small Item 1 (Cat - Keeping existing cute cat) -->
+                <!-- Small Item 1 -->
                 <div class="rounded-xl overflow-hidden relative group fade-in-up">
                     <img src="https://www.free-materials.com/adm/wp-content/uploads/2023/01/adp23-01-08-00-14-46-800-.jpg" alt="Cat" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-300"></div>
                 </div>
 
-                <!-- Small Item 2 (Camel - Replacing Bear) -->
+                <!-- Small Item 2 -->
                 <div class="rounded-xl overflow-hidden relative group fade-in-up">
                     <img src="https://images.unsplash.com/photo-1682038841106-6a07ea219a08?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODd8fGFyYWJpY3xlbnwwfHwwfHx8MA%3D%3D" alt="Cute Camel" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-300"></div>
@@ -596,33 +587,32 @@
                     <img src="https://www.free-materials.com/adm/wp-content/uploads/2018/03/adpDSC_6994-.jpg" alt="Study Abroad" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:grayscale-0 grayscale-[30%]">
                     <div class="absolute inset-0 bg-arab-gold/10 group-hover:bg-transparent transition duration-300"></div>
                     <div class="absolute bottom-0 left-0 bg-gradient-to-t from-black/80 p-4 w-full">
-                        <span class="text-white text-sm font-bold flex items-center gap-2">
+                        <span class="text-white text-xs md:text-sm font-bold flex items-center gap-2">
                             クウェート政府奨学金留学 <i class="fas fa-external-link-alt text-xs"></i>
                         </span>
-                        <p class="text-gray-300 text-xs mt-1">日本人のアラブ諸国留学</p>
+                        <p class="text-gray-300 text-[10px] md:text-xs mt-1">日本人のアラブ諸国留学</p>
                     </div>
                 </a>
             </div>
-            
         </div>
     </section>
 
     <!-- Access & Japan Office -->
-    <section id="access" class="py-24 bg-arab-sand relative">
-        <div class="container mx-auto px-6">
+    <section id="access" class="py-16 md:py-24 bg-arab-sand relative">
+        <div class="container mx-auto px-5 md:px-6">
             <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row fade-in-up">
-                <div class="md:w-1/2 relative min-h-[400px]">
+                <div class="md:w-1/2 relative min-h-[250px] md:min-h-[400px]">
                     <img src="https://www.free-materials.com/adm/wp-content/uploads/2025/11/adpDSC_2592-.jpg" alt="Harajuku Station" class="absolute inset-0 w-full h-full object-cover grayscale-[20%]">
                     <div class="absolute inset-0 bg-arab-dark/40 flex flex-col items-center justify-center text-center p-6">
-                        <p class="text-arab-gold font-cinzel tracking-widest mb-2">TOKYO HEADQUARTER</p>
-                        <h3 class="text-white text-4xl font-serif font-bold shadow-black drop-shadow-lg">JAPAN OFFICE</h3>
+                        <p class="text-arab-gold font-cinzel tracking-widest mb-2 text-sm md:text-base">TOKYO HEADQUARTER</p>
+                        <h3 class="text-white text-2xl md:text-4xl font-serif font-bold shadow-black drop-shadow-lg">JAPAN OFFICE</h3>
                     </div>
                 </div>
-                <div class="md:w-1/2 p-10 md:p-14 flex flex-col justify-center">
-                    <h3 class="text-2xl font-bold text-arab-dark mb-8 font-serif border-l-4 border-arab-gold pl-4">東京本部へのアクセス</h3>
-                    <div class="space-y-6 text-gray-600">
+                <div class="md:w-1/2 p-8 md:p-14 flex flex-col justify-center">
+                    <h3 class="text-xl md:text-2xl font-bold text-arab-dark mb-6 md:mb-8 font-serif border-l-4 border-arab-gold pl-4">東京本部へのアクセス</h3>
+                    <div class="space-y-4 md:space-y-6 text-gray-600 text-sm md:text-base">
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
+                            <div class="w-8 h-8 md:w-10 md:h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
@@ -635,7 +625,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                             <div class="w-10 h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
+                             <div class="w-8 h-8 md:w-10 md:h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
@@ -644,27 +634,26 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                             <div class="w-10 h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
+                             <div class="w-8 h-8 md:w-10 md:h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
                                 <p class="font-bold text-arab-dark">メールアドレス</p>
-                                <span>info@arab-nomadic-friendship.jp</span>
+                                <span class="break-all">info@arab-nomadic-friendship.jp</span>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                             <div class="w-10 h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
+                             <div class="w-8 h-8 md:w-10 md:h-10 bg-arab-sand rounded-full flex items-center justify-center flex-shrink-0 text-arab-gold mt-1">
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div>
                                 <p class="font-bold text-arab-dark">開館時間</p>
                                 <span>平日 10:00 - 18:00 (土日祝休)</span>
-                                <p class="text-xs text-gray-400 mt-1">※イベント開催時は土日も開館</p>
                             </div>
                         </div>
                     </div>
-                    <div class="mt-10">
-                        <a href="#" class="inline-block bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-50 hover:text-arab-gold transition-colors shadow-sm">
+                    <div class="mt-8 md:mt-10">
+                        <a href="#" class="inline-block bg-white border border-gray-300 text-gray-700 px-5 py-3 md:px-6 rounded-lg font-bold hover:bg-gray-50 hover:text-arab-gold transition-colors shadow-sm text-sm md:text-base">
                             Google Mapsで見る <i class="fas fa-external-link-alt ml-2 text-xs"></i>
                         </a>
                     </div>
@@ -674,23 +663,23 @@
     </section>
 
     <!-- Contact CTA -->
-    <section id="contact" class="py-24 bg-arab-dark text-center text-white relative overflow-hidden">
+    <section id="contact" class="py-16 md:py-24 bg-arab-dark text-center text-white relative overflow-hidden">
         <!-- Background decorative element -->
         <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none bg-[url('https://www.free-materials.com/adm/wp-content/uploads/2024/06/adpIMG_2573-.jpg')] bg-cover bg-center"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-arab-gold/10 rounded-full blur-3xl"></div>
         
         <div class="container mx-auto px-6 relative z-10 fade-in-up">
-            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">Join Our Community</h2>
-            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <h2 class="text-2xl md:text-5xl font-serif font-bold mb-4 md:mb-6">Join Our Community</h2>
+            <p class="text-base md:text-xl text-gray-300 mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
                 アラブ文化に興味がある方、国際交流に参加したい方、<br>
                 私たちと一緒に新しい世界を広げませんか？<br>
-                <span class="text-arab-gold text-base mt-2 block">まずは無料の会員登録、または資料請求から。</span>
+                <span class="text-arab-gold text-sm md:text-base mt-2 block">まずは無料の会員登録、または資料請求から。</span>
             </p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center mb-16">
-                <button onclick="openModal('register')" class="bg-arab-gold text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-yellow-600 transition-all shadow-lg hover:shadow-2xl transform hover:-translate-y-1 ring-4 ring-arab-gold/30">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-6 justify-center mb-10 md:mb-16">
+                <button onclick="openModal('register')" class="bg-arab-gold text-white px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-base md:text-lg hover:bg-yellow-600 transition-all shadow-lg hover:shadow-2xl transform hover:-translate-y-1 ring-4 ring-arab-gold/30">
                     会員登録はこちら <span class="text-sm font-normal ml-1">(無料)</span>
                 </button>
-                <button onclick="openModal('contact')" class="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-arab-dark transition-all hover:shadow-lg">
+                <button onclick="openModal('contact')" class="bg-transparent border-2 border-white text-white px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-base md:text-lg hover:bg-white hover:text-arab-dark transition-all hover:shadow-lg">
                     資料請求・お問い合わせ
                 </button>
             </div>
@@ -698,16 +687,16 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-16 border-t border-gray-800">
+    <footer class="bg-gray-900 text-gray-400 py-12 md:py-16 border-t border-gray-800">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
+            <div class="grid md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
                 <!-- Col 1: Logo & Desc -->
                 <div class="col-span-1 md:col-span-1">
-                    <div class="flex items-center gap-3 mb-6">
-                         <img src="https://github.com/tochigiagriculturalacademy/homepage/blob/main/Gemini_Generated_Image_hfkqoshfkqoshfkq.png?raw=true" alt="Logo" class="h-12 w-12 rounded-full border border-gray-600">
+                    <div class="flex items-center gap-3 mb-4 md:mb-6">
+                         <img src="https://github.com/tochigiagriculturalacademy/homepage/blob/main/Gemini_Generated_Image_hfkqoshfkqoshfkq.png?raw=true" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full border border-gray-600">
                         <span class="text-white font-serif font-bold text-lg">JANFA</span>
                     </div>
-                    <p class="text-sm leading-relaxed mb-6">
+                    <p class="text-xs md:text-sm leading-relaxed mb-6">
                         日本とアラブ遊牧民族をつなぐ架け橋。<br>
                         文化交流を通じて世界平和に貢献します。
                     </p>
@@ -719,8 +708,8 @@
 
                 <!-- Col 2: Links -->
                 <div>
-                    <h4 class="text-white font-bold mb-6 font-serif">サイトマップ</h4>
-                    <ul class="space-y-3 text-sm">
+                    <h4 class="text-white font-bold mb-4 md:mb-6 font-serif">サイトマップ</h4>
+                    <ul class="space-y-2 md:space-y-3 text-xs md:text-sm">
                         <li><a href="#about" class="hover:text-arab-gold transition-colors">協会について</a></li>
                         <li><a href="#facility" class="hover:text-arab-gold transition-colors">施設案内</a></li>
                         <li><a href="#activities" class="hover:text-arab-gold transition-colors">活動内容</a></li>
@@ -730,22 +719,21 @@
 
                 <!-- Col 3: Links -->
                 <div>
-                    <h4 class="text-white font-bold mb-6 font-serif opacity-0 md:opacity-100">その他</h4>
-                    <ul class="space-y-3 text-sm">
+                    <h4 class="text-white font-bold mb-4 md:mb-6 font-serif opacity-100 md:opacity-100">その他</h4>
+                    <ul class="space-y-2 md:space-y-3 text-xs md:text-sm">
                          <li><a href="#gallery" class="hover:text-arab-gold transition-colors">ギャラリー</a></li>
                         <li><a href="#access" class="hover:text-arab-gold transition-colors">アクセス</a></li>
                         <li><a href="https://cfandf.github.io/JANFA/ANFA" target="_blank" rel="noopener noreferrer" class="hover:text-arab-gold transition-colors">国際本部 (ANFA)</a></li>
                         <li><a href="#" class="hover:text-arab-gold transition-colors">プライバシーポリシー</a></li>
-                        <li><a href="#" class="hover:text-arab-gold transition-colors">会員規約</a></li>
                     </ul>
                 </div>
 
-                <!-- Col 4: Newsletter (Fake) -->
+                <!-- Col 4: Newsletter -->
                 <div>
-                    <h4 class="text-white font-bold mb-6 font-serif">ニュースレター</h4>
-                    <p class="text-sm mb-4">イベント情報をいち早くお届けします。</p>
+                    <h4 class="text-white font-bold mb-4 md:mb-6 font-serif">ニュースレター</h4>
+                    <p class="text-xs md:text-sm mb-4">イベント情報をいち早くお届けします。</p>
                     <form onsubmit="event.preventDefault(); alert('登録ありがとうございます！');" class="flex flex-col gap-2">
-                        <input type="email" placeholder="メールアドレス" class="bg-gray-800 border border-gray-700 text-white px-4 py-2 rounded focus:outline-none focus:border-arab-gold transition-colors">
+                        <input type="email" placeholder="メールアドレス" class="bg-gray-800 border border-gray-700 text-white px-4 py-2 rounded focus:outline-none focus:border-arab-gold transition-colors text-sm">
                         <button class="bg-arab-gold text-white px-4 py-2 rounded hover:bg-yellow-600 transition-colors font-bold text-sm">登録する</button>
                     </form>
                 </div>
@@ -762,11 +750,12 @@
     <div id="modal-register" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-black/75 transition-opacity backdrop-blur-sm" onclick="closeModal('register')"></div>
         <div class="flex min-h-full items-center justify-center p-4 text-center">
-            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:w-full sm:max-w-lg w-full">
+            <!-- Added mx-4 to ensure margin on small screens -->
+            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:w-full sm:max-w-lg w-full m-4">
                 <!-- Form Content -->
-                <div id="register-form-content" class="p-8">
+                <div id="register-form-content" class="p-6 md:p-8">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-2xl font-serif font-bold text-arab-dark">新規会員登録</h3>
+                        <h3 class="text-xl md:text-2xl font-serif font-bold text-arab-dark">新規会員登録</h3>
                         <button onclick="closeModal('register')" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
                     </div>
                     <form onsubmit="handleFakeSubmit(event, 'register')" class="space-y-4">
@@ -812,11 +801,11 @@
     <div id="modal-contact" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-black/75 transition-opacity backdrop-blur-sm" onclick="closeModal('contact')"></div>
         <div class="flex min-h-full items-center justify-center p-4 text-center">
-            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:w-full sm:max-w-lg w-full">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:w-full sm:max-w-lg w-full m-4">
                 <!-- Form Content -->
-                <div id="contact-form-content" class="p-8">
+                <div id="contact-form-content" class="p-6 md:p-8">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-2xl font-serif font-bold text-arab-dark">資料請求・お問い合わせ</h3>
+                        <h3 class="text-xl md:text-2xl font-serif font-bold text-arab-dark">資料請求・お問い合わせ</h3>
                         <button onclick="closeModal('contact')" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
                     </div>
                     <form onsubmit="handleFakeSubmit(event, 'contact')" class="space-y-4">
@@ -865,7 +854,7 @@
     </div>
 
     <!-- Floating LINE Widget -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end group">
+    <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col items-end group">
         <!-- Notification Badge/Tooltip -->
         <div id="line-tooltip" class="bg-white text-xs font-bold py-2 px-4 rounded-full shadow-lg mb-3 mr-2 relative animate-bounce" style="animation-duration: 2s;">
             <span class="text-green-600">●</span> 最新情報はこちら
@@ -875,7 +864,7 @@
         </div>
 
         <!-- QR Code Popup (Hidden by default, toggled by click) -->
-        <div id="line-popup" class="hidden mb-4 bg-white p-4 rounded-2xl shadow-2xl border border-gray-100 transform origin-bottom-right transition-all duration-300 w-64">
+        <div id="line-popup" class="hidden mb-4 bg-white p-4 rounded-2xl shadow-2xl border border-gray-100 transform origin-bottom-right transition-all duration-300 w-60 md:w-64">
             <div class="text-center">
                 <div class="flex justify-between items-center mb-2">
                     <p class="text-sm font-bold text-gray-800">公式LINE友だち追加</p>
@@ -883,7 +872,7 @@
                 </div>
                 <p class="text-xs text-gray-500 mb-3">イベント情報や限定ニュースをお届け！</p>
                 <div class="bg-gray-50 p-2 rounded-lg inline-block mb-2">
-                    <img src="https://qr-official.line.me/gs/M_298lghoh_GW.png?oat_content=qr" alt="LINE QR" class="w-40 h-40 object-contain mx-auto">
+                    <img src="https://qr-official.line.me/gs/M_298lghoh_GW.png?oat_content=qr" alt="LINE QR" class="w-32 h-32 md:w-40 md:h-40 object-contain mx-auto">
                 </div>
                 <a href="https://lin.ee/pKKcdLh" target="_blank" class="block w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-2 rounded-lg text-sm transition-colors mb-1 shadow-sm">
                     友だち追加する
@@ -893,7 +882,7 @@
         </div>
 
         <!-- Float Button -->
-        <button id="line-btn" class="bg-[#06C755] hover:bg-[#05b34c] text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-4xl transition-all duration-300 hover:scale-110 hover:shadow-green-500/30 focus:outline-none ring-4 ring-white">
+        <button id="line-btn" class="bg-[#06C755] hover:bg-[#05b34c] text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-lg flex items-center justify-center text-3xl md:text-4xl transition-all duration-300 hover:scale-110 hover:shadow-green-500/30 focus:outline-none ring-4 ring-white">
             <i class="fab fa-line"></i>
         </button>
     </div>
@@ -948,10 +937,11 @@
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('shadow-md');
-                navbar.classList.replace('py-4', 'py-2');
+                // Removed py change for smoother mobile experience
+                navbar.classList.add('bg-white/95');
             } else {
                 navbar.classList.remove('shadow-md');
-                navbar.classList.replace('py-2', 'py-4');
+                navbar.classList.remove('bg-white/95');
             }
         });
 
